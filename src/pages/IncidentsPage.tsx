@@ -51,6 +51,7 @@ export default function IncidentsPage() {
         </select>
       }/>
       <div className="bg-white rounded-xl shadow-sm overflow-hidden">
+        <div className="overflow-x-auto">
         <table className="w-full text-sm">
           <thead className="bg-gray-50 text-xs text-charcoal-lighter uppercase">
             <tr>
@@ -77,6 +78,7 @@ export default function IncidentsPage() {
             ))}
           </tbody>
         </table>
+        </div>
       </div>
 
       {editItem && (

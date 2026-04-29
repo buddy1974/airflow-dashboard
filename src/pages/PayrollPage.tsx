@@ -22,6 +22,7 @@ export default function PayrollPage() {
     <div>
       <PageHeader title="Gehaltsabrechnung" subtitle={`${data?.length ?? 0} Einträge`} />
       <div className="bg-white rounded-xl shadow-sm overflow-hidden">
+        <div className="overflow-x-auto">
         <table className="w-full text-sm">
           <thead className="bg-gray-50 text-xs text-charcoal-lighter uppercase">
             <tr>
@@ -49,6 +50,7 @@ export default function PayrollPage() {
             {!data?.length && <tr><td colSpan={7} className="px-4 py-8 text-center text-charcoal-lighter">Keine Gehaltsabrechnungen</td></tr>}
           </tbody>
         </table>
+        </div>
       </div>
     </div>
   )

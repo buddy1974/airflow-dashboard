@@ -48,7 +48,7 @@ export default function HrPage() {
   return (
     <div>
       <PageHeader title="HR" subtitle="Urlaub · Krankmeldungen · Qualifikationsmatrix" />
-      <div className="flex gap-2 mb-6">
+      <div className="flex flex-wrap gap-2 mb-6">
         {(['urlaub', 'krank', 'matrix'] as const).map(t => (
           <button key={t} onClick={() => setTab(t)}
             className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${tab === t ? 'bg-teal-500 text-white' : 'bg-white text-charcoal border border-gray-200 hover:border-teal-300'}`}>
@@ -59,6 +59,7 @@ export default function HrPage() {
 
       {tab === 'urlaub' && (
         <div className="bg-white rounded-xl shadow-sm overflow-hidden">
+          <div className="overflow-x-auto">
           <table className="w-full text-sm">
             <thead className="bg-gray-50 text-xs text-charcoal-lighter uppercase">
               <tr><th className="px-4 py-3 text-left">Mitarbeiter</th><th className="px-4 py-3 text-left">Von</th><th className="px-4 py-3 text-left">Bis</th><th className="px-4 py-3 text-left">Tage</th><th className="px-4 py-3 text-left">Grund</th><th className="px-4 py-3 text-left">Status</th><th className="px-4 py-3"></th></tr>
@@ -78,11 +79,13 @@ export default function HrPage() {
               {!urlaub?.length && <tr><td colSpan={7} className="px-4 py-8 text-center text-charcoal-lighter">Keine Urlaubsanträge</td></tr>}
             </tbody>
           </table>
+          </div>
         </div>
       )}
 
       {tab === 'krank' && (
         <div className="bg-white rounded-xl shadow-sm overflow-hidden">
+          <div className="overflow-x-auto">
           <table className="w-full text-sm">
             <thead className="bg-gray-50 text-xs text-charcoal-lighter uppercase">
               <tr><th className="px-4 py-3 text-left">Mitarbeiter</th><th className="px-4 py-3 text-left">Von</th><th className="px-4 py-3 text-left">Bis</th><th className="px-4 py-3 text-left">Status</th><th className="px-4 py-3 text-left">Diagnose</th><th className="px-4 py-3 text-left">Attest</th></tr>
@@ -101,6 +104,7 @@ export default function HrPage() {
               {!krank?.length && <tr><td colSpan={6} className="px-4 py-8 text-center text-charcoal-lighter">Keine Krankmeldungen</td></tr>}
             </tbody>
           </table>
+          </div>
         </div>
       )}
 

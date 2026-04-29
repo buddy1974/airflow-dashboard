@@ -39,7 +39,7 @@ export default function FinancePage() {
         </div>
       )}
 
-      <div className="flex gap-2 mb-4">
+      <div className="flex flex-wrap gap-2 mb-4">
         {(['invoices', 'transactions'] as const).map(t => (
           <button key={t} onClick={() => setTab(t)}
             className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${tab === t ? 'bg-teal-500 text-white' : 'bg-white text-charcoal border border-gray-200 hover:border-teal-300'}`}>
@@ -51,6 +51,7 @@ export default function FinancePage() {
       {tab === 'invoices' && (
         <div className="bg-white rounded-xl shadow-sm overflow-hidden">
           {invoicesLoading ? <div className="flex justify-center py-8"><div className="animate-spin h-8 w-8 border-4 border-teal-500 border-t-transparent rounded-full"/></div> : (
+            <div className="overflow-x-auto">
             <table className="w-full text-sm">
               <thead className="bg-gray-50 text-xs text-charcoal-lighter uppercase">
                 <tr>
@@ -74,12 +75,14 @@ export default function FinancePage() {
                 {!invoices?.length && <tr><td colSpan={5} className="px-4 py-8 text-center text-charcoal-lighter">Keine Rechnungen</td></tr>}
               </tbody>
             </table>
+            </div>
           )}
         </div>
       )}
 
       {tab === 'transactions' && (
         <div className="bg-white rounded-xl shadow-sm overflow-hidden">
+          <div className="overflow-x-auto">
           <table className="w-full text-sm">
             <thead className="bg-gray-50 text-xs text-charcoal-lighter uppercase">
               <tr>
@@ -105,6 +108,7 @@ export default function FinancePage() {
               {!transactions?.length && <tr><td colSpan={5} className="px-4 py-8 text-center text-charcoal-lighter">Keine Transaktionen</td></tr>}
             </tbody>
           </table>
+          </div>
         </div>
       )}
     </div>

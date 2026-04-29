@@ -88,7 +88,7 @@ export default function MonitoringPage() {
 
       {/* OCR panel */}
       {showOcr && (
-        <div className="mb-6 bg-white rounded-2xl shadow-sm p-6">
+        <div className="mb-6 bg-white rounded-2xl shadow-sm p-4 md:p-6">
           <h3 className="font-semibold text-charcoal mb-2">📷 Papierprotokoll einscannen</h3>
           <p className="text-sm text-charcoal-lighter mb-4">Haben Sie ein ausgefülltes Papierformular? Laden Sie ein Foto hoch — wir lesen die Werte automatisch ein.</p>
           <OcrUpload onScan={(data) => { console.log('OCR data:', data); setShowOcr(false) }} type="monitoring"/>

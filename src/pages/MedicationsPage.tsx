@@ -57,6 +57,7 @@ export default function MedicationsPage() {
 
       {selectedPatientId && !isLoading && (
         <div className="bg-white rounded-xl shadow-sm overflow-hidden">
+          <div className="overflow-x-auto">
           <table className="w-full text-sm">
             <thead className="bg-gray-50 text-xs text-charcoal-lighter uppercase">
               <tr>
@@ -86,6 +87,7 @@ export default function MedicationsPage() {
               {!meds?.length && <tr><td colSpan={8} className="px-4 py-8 text-center text-charcoal-lighter">Keine aktiven Medikamente</td></tr>}
             </tbody>
           </table>
+          </div>
         </div>
       )}
 
