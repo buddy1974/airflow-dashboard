@@ -95,6 +95,25 @@ export default function Layout() {
           ))}
         </nav>
 
+        {/* Developer credit */}
+        {!collapsed && (
+          <div style={{ borderTop: '1px solid rgba(255,255,255,0.15)', padding: '12px 16px' }}>
+            <p style={{ fontSize: 11, color: 'rgba(255,255,255,0.5)', textAlign: 'center', margin: 0 }}>
+              Entwickelt von{' '}
+              <a
+                href="https://maxpromo.digital"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ color: 'rgba(255,255,255,0.7)', textDecoration: 'underline' }}
+                onMouseEnter={e => (e.currentTarget.style.color = 'white')}
+                onMouseLeave={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.7)')}
+              >
+                maxpromo.digital
+              </a>
+            </p>
+          </div>
+        )}
+
         {/* Collapse toggle */}
         <button
           onClick={() => setCollapsed(c => !c)}
