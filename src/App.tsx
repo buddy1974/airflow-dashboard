@@ -23,6 +23,12 @@ import CompliancePage from './pages/CompliancePage'
 import StaffDocsPage from './pages/StaffDocsPage'
 import HrPage from './pages/HrPage'
 import UsersPage from './pages/UsersPage'
+import ImportPage from './pages/ImportPage'
+import AiPage from './pages/AiPage'
+import SocialPage from './pages/SocialPage'
+import PortalLoginPage from './pages/PortalLoginPage'
+import PortalDashboardPage from './pages/PortalDashboardPage'
+import PortalPatientPage from './pages/PortalPatientPage'
 
 function RootRedirect() {
   const { user, token } = useAuth()
@@ -35,8 +41,14 @@ export default function App() {
   return (
     <AuthProvider>
       <Routes>
-        <Route path="/login" element={<LoginPage />} />
+        {/* Public routes */}
+        <Route path="/login"              element={<LoginPage />} />
+        <Route path="/portal/login"       element={<PortalLoginPage />} />
+        <Route path="/portal/dashboard"   element={<PortalDashboardPage />} />
+        <Route path="/portal/patient/:id" element={<PortalPatientPage />} />
         <Route path="/" element={<RootRedirect />} />
+
+        {/* Authenticated layout routes */}
         <Route element={<ProtectedRoute><Layout /></ProtectedRoute>}>
           <Route path="/pdl-onboarding" element={<ProtectedRoute adminOnly><PdlOnboardingPage /></ProtectedRoute>} />
           <Route path="/pdl-office"     element={<ProtectedRoute adminOnly><PdlOfficePage /></ProtectedRoute>} />
@@ -57,6 +69,9 @@ export default function App() {
           <Route path="/compliance"     element={<CompliancePage />} />
           <Route path="/staff-docs"     element={<StaffDocsPage />} />
           <Route path="/hr"             element={<HrPage />} />
+          <Route path="/import"         element={<ProtectedRoute adminOnly><ImportPage /></ProtectedRoute>} />
+          <Route path="/ai"             element={<AiPage />} />
+          <Route path="/social"         element={<ProtectedRoute adminOnly><SocialPage /></ProtectedRoute>} />
           <Route path="/users"          element={<ProtectedRoute adminOnly><UsersPage /></ProtectedRoute>} />
         </Route>
       </Routes>

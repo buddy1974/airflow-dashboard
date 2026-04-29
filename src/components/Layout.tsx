@@ -4,7 +4,7 @@ import {
   LayoutDashboard, Briefcase, CheckSquare, Users, Activity, Cpu,
   ArrowLeftRight, AlertTriangle, FileHeart, Pill, Calendar, Euro,
   Wallet, GraduationCap, UserPlus, ShieldCheck, FolderOpen, Heart,
-  Settings, LogOut, ChevronLeft, Menu
+  Settings, LogOut, ChevronLeft, Menu, Sparkles, Share2, Upload
 } from 'lucide-react'
 import { useAuth } from '../context/AuthContext'
 
@@ -27,6 +27,9 @@ const NAV_ITEMS = [
   { label: 'MDK Compliance',    path: '/compliance',     icon: ShieldCheck },
   { label: 'Dokumente',         path: '/staff-docs',     icon: FolderOpen },
   { label: 'HR',                path: '/hr',             icon: Heart },
+  { label: 'KI-Tools',          path: '/ai',             icon: Sparkles,        adminOnly: true },
+  { label: 'Social Media',      path: '/social',         icon: Share2,          adminOnly: true },
+  { label: 'Datenimport',       path: '/import',         icon: Upload,          adminOnly: true },
   { label: 'Benutzer',          path: '/users',          icon: Settings,        adminOnly: true },
 ]
 
