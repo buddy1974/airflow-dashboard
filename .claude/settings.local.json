@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx tsc *)",
+      "Bash(/c/Users/loneb/Documents/ai-software-dev/projects/airflow-backend/node_modules/.bin/tsc *)",
+      "Bash(git *)",
+      "Bash(/c/Users/loneb/Documents/ai-software-dev/projects/airflow-backend/node_modules/.bin/prisma db *)",
+      "Bash(bash *)"
+    ]
+  }
+}
